@@ -37,7 +37,44 @@ function ToDoPage() {
         // setTodos(todosJson);
       });
 
+      // Zu Kursaufgabe 20240220 -start
     console.log("Hello world 1 von alternativeFetchTodos");
+      // TodosByUserId
+    async function fetchAndSetTodosByUserId(byUserId) {
+      try {
+        const jsonResponse = await TodosQueries.fetchTodosByUserId(byUserId);
+        setTodos(jsonResponse);
+      } catch (error) {
+        console.error("Error fetching todos by user ID:", error);
+      }
+
+      // TodosMark
+      async function fetchAndSetTodosMark(todosMark) {
+        try {
+          const jsonResponse = await TodosQueries.fetchTodosMark(todosMark);
+          setTodos(jsonResponse);
+        } catch (error) {
+          console.error("Error fetching todos by Mark:", error);
+        }
+
+        // TodosUpdate
+        async function fetchAndSetTodosUpdate(todosUpdate) {
+          try {
+            const jsonResponse = await TodosQueries.fetchTodosUpdate(todosUpdate);
+            setTodos(jsonResponse);
+          } catch (error) {
+            console.error("Error fetching todos by Update:", error);
+          }
+
+          // TodosDelete
+          async function fetchAndSetTodosDelete(todosDelete) {
+            try {
+              const jsonResponse = await TodosQueries.fetchTodosDelete(todosDelete);
+              setTodos(jsonResponse);
+            } catch (error) {
+              console.error("Error fetching todos by Delete:", error);
+            }
+            // Kurdsaufgabe 20240220 - end
   }
 
   // useEffect
